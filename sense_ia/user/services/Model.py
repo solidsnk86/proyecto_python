@@ -42,7 +42,17 @@ class Model:
                     print(f"Se ha eliminado el usuario: {username}")
         except psycopg2.Error as e:
             print(f"No se pudo eliminar el usuario: {e}")
-
+    @staticmethod
+    def update_user():
+        try:
+            with conn:
+                with conn.cursor() as cursor:
+                    query = "UPDATE username FROM public.user WHERE username = %s"
+                    username = input("Ingresa otro nombre de usuario: ")
+                    cursor.execute(query, (username,))
+                    print(f"Se ha actualizado el usuario: {username}")
+        except psycopg2.Error as e:
+            print(f"No se pudo actualizar el usuario: {e}")
     @staticmethod
     def login():
         try:

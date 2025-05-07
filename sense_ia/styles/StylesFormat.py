@@ -3,10 +3,10 @@ from colorama import Fore, Style
 class Styles:
     @staticmethod
     def menu_principal():
-        print('''
+        print(f'''{Fore.BLUE}
     ╔═════════════════════════════════════════════════════╗
     ║                                                     ║
-    ║      ¡BIENVENIDO A SENSE IA - GPT MODEL!            ║
+    ║       ¡BIENVENIDO A SENSE IA - ADMIN MODE!          ║
     ║                                                     ║
     ╠═════════════════════════════════════════════════════╣
     ║                                                     ║
@@ -16,7 +16,7 @@ class Styles:
     ║               4️⃣  🚪 Salir                           ║
     ║                                                     ║
     ╚═════════════════════════════════════════════════════╝
-    '''
+    {Style.RESET_ALL}'''
     )
     
     @staticmethod
@@ -38,25 +38,22 @@ class Styles:
     """.format(username))
         
     @staticmethod
-    def highlight_code(text):
+    def highlight_code(text: str):
         """
         Resalta bloques de código en la respuesta.
         Busca patrones que empiezen con ```language y los resalta con letra verde.
         """
-        lines = text.split('\n')
         in_code_block = False
-        result_lines = []
         
-        for line in lines:
-            if line.strip().startswith("```"):
-                in_code_block = not in_code_block
-                # Aplicar estilo al marcador de inicio/fin del bloque
-                result_lines.append(f"{Fore.GREEN}{line}{Style.RESET_ALL}")
+        if text.startswith("```"):
+            in_code_block = not in_code_block
+            # Aplicar estilo al marcador de inicio/fin del bloque
+            return f"{Fore.GREEN}{text}{Style.RESET_ALL}"
             # Si estamos dentro de un bloque de código
-            elif in_code_block:
-                result_lines.append(f"{Fore.LIGHTGREEN_EX}{line}{Style.RESET_ALL}")
+        elif in_code_block:
+            return f"{Fore.LIGHTGREEN_EX}{text}{Style.RESET_ALL}"
             # Líneas normales sin formato especial
-            else:
-                result_lines.append(line)
+        else:
+            text
         
-        return '\n'.join(result_lines)
+        return '\n'.join(text)
