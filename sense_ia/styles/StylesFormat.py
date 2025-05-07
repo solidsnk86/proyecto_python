@@ -1,23 +1,24 @@
-from colorama import Fore, Style
+from colorama import init, Fore, Style, Back
 
+init(autoreset=True)
 class Styles:
     @staticmethod
     def menu_principal():
-        print(f'''{Fore.BLUE}
-    ╔═════════════════════════════════════════════════════╗
-    ║                                                     ║
-    ║       ¡BIENVENIDO A SENSE IA - ADMIN MODE!          ║
-    ║                                                     ║
-    ╠═════════════════════════════════════════════════════╣
-    ║                                                     ║
-    ║               1️⃣  👉 Crear usuario                   ║  
-    ║               2️⃣  🗑️  Borrar usuario                  ║
-    ║               3️⃣  🔐 Iniciar sesión                  ║
-    ║               4️⃣  🚪 Salir                           ║
-    ║                                                     ║
-    ╚═════════════════════════════════════════════════════╝
-    {Style.RESET_ALL}'''
-    )
+        print(f'''{Fore.BLUE + Back.BLACK}
+        ╔═════════════════════════════════════════════════════╗
+        ║                                                     ║
+        ║ {Fore.CYAN}👾 ¡BIENVENIDO A SENSE IA - ADMIN MODE! {Fore.BLUE}            ║
+        ║                                                     ║
+        ╠═════════════════════════════════════════════════════╣
+        ║                                                     ║
+        ║ {Fore.GREEN}🚀  [1] Crear usuario{Fore.BLUE}                               ║
+        ║ {Fore.YELLOW}🛠️   [2] Editar usuario{Fore.BLUE}                             ║
+        ║ {Fore.RED}🗑️   [3] Borrar usuario{Fore.BLUE}                             ║
+        ║ {Fore.MAGENTA}🔐  [4] Iniciar sesión{Fore.BLUE}                              ║
+        ║ {Fore.WHITE}🚪  [5] Salir{Fore.BLUE}                                       ║
+        ║                                                     ║
+        ╚═════════════════════════════════════════════════════╝
+        {Style.RESET_ALL}''')
     
     @staticmethod
     def menu_chat(username):

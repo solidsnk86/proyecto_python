@@ -1,6 +1,6 @@
 DSN = {
     "user": "postgres",
-    "password": "tu_password_🐕",
+    "password": "32088028..mGc",
     "host": "127.0.0.1",
     "port": "5432",
     "database": "sense_ia",
