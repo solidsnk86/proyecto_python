@@ -11,7 +11,7 @@ class Chat:
     @staticmethod
     def init(username):
         Styles.menu_chat(username)
-        client = cohere.ClientV2("lOMI0FvPadsmibCBEQbVXiESdVJgyVRXLXtwUwcQ")
+        client = cohere.ClientV2("<<tu_apikey>>")
 
         history = [
             {"role": "system", "content": f'''

@@ -2,7 +2,6 @@ import psycopg2
 import uuid
 from dsn import DSN
 from colorama import Fore, Style
-import getpass
 
 conn = psycopg2.connect(**DSN)
 
@@ -13,9 +12,11 @@ class Model:
             with conn:
                 with conn.cursor() as cursor:
                     query = "INSERT INTO public.user (id, username, password) VALUES (%s, %s, %s)"
-                    username = input("\nIngrese nombre de usuario:")
-                    password = getpass.getpass("Ingrese la contraseña: ")
+                    values = input(
+                        "\nIngrese nombre de usuario y contraseña separados por coma (ej. user, pass): "
+                    )
                     random_id = uuid.uuid4()
+                    username, password = values.split(", ")
                     converted_values = (
                         str(random_id),
                         username.strip(),
@@ -36,24 +37,22 @@ class Model:
                     username = input(
                         "\nIngrese el nombre del usuario que desea eliminar: "
                     )
-                    password = getpass.getpass("Ingrese la contraseña: ")
+                    password = input("Ingrese la contraseña: ")
                     cursor.execute(query, (username, password))
                     print(f"Se ha eliminado el usuario: {username}")
         except psycopg2.Error as e:
             print(f"No se pudo eliminar el usuario: {e}")
-            
     @staticmethod
-    def update_user(username):
+    def update_user():
         try:
             with conn:
                 with conn.cursor() as cursor:
-                    query = "UPDATE public.user SET username = %s WHERE username = %s"
-                    new_user = input(f"\n{Fore.LIGHTRED_EX}Editar el nombre de usuario:{Style.RESET_ALL} ")
-                    cursor.execute(query, (new_user, username))
-                    print(f"{Fore.GREEN}Se ha actualizado el nombre de usuario: {username} -> {new_user}{Style.RESET_ALL}")
+                    query = "UPDATE username FROM public.user WHERE username = %s"
+                    username = input("Ingresa otro nombre de usuario: ")
+                    cursor.execute(query, (username,))
+                    print(f"Se ha actualizado el usuario: {username}")
         except psycopg2.Error as e:
             print(f"No se pudo actualizar el usuario: {e}")
-            
     @staticmethod
     def login():
         try:
@@ -73,7 +72,7 @@ class Model:
 
                     if user_data:
                         user_id, username = user_data
-                        print(f"✅ Usuario autenticado: {str(username)}")
+                        print(f"✅ Usuario autenticado: {str(username).capitalize()}")
 
                         user = {
                             "id": user_id,
