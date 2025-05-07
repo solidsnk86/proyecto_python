@@ -101,9 +101,9 @@ Crea una nueva rama para tu funcionalidad o corrección de errores.
 Realiza los cambios necesarios y asegúrate de que todo funciona correctamente.
 Envía una pull request con una descripción detallada de tus cambios.
 
-- Tips que añadir:
-> Se puede agregar la clase para hashear la contraseña.
-> Agregar más tablas en la DB para almacenar el chat.
-> Tirá más tips aquí...
+> **NOTE!** Tips para añadir 
+>- Se puede agregar la clase para hashear la contraseña.
+>- Agregar más tablas en la DB para almacenar el chat.
+>- Tirá más tips aquí...
 
 ¡Gracias por tu interés en este proyecto!
