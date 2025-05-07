@@ -38,4 +38,5 @@ PostgreSQL 17
 			Schemas
 				public
 					Tables
-						user</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+						user</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>20</x><y>50</y><w>750</w><h>370</h></coordinates><panel_attributes>Creación de la tabla en pgAdmin
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
