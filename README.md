@@ -1,5 +1,6 @@
 <div align="center">
- |----------| | SENSE_IA | 
+ |----------| 
+ | SENSE_IA | 
 </div>
 
 # Proyecto Python con IA y login de usuarios
