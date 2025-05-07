@@ -36,6 +36,27 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
+Crea la base de datos en pgAdmin:
+```sql
+-- Table: public.user
+
+-- DROP TABLE IF EXISTS public."user";
+
+CREATE TABLE IF NOT EXISTS public."user"
+(
+    id uuid NOT NULL,
+    username character varying(64) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(64) NOT NULL,
+    CONSTRAINT user_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."user"
+    OWNER to postgres;
+```
+
+
 Configura las variables de entorno:
 
 ```bash
@@ -78,4 +99,10 @@ Haz un fork del repositorio.
 Crea una nueva rama para tu funcionalidad o corrección de errores.
 Realiza los cambios necesarios y asegúrate de que todo funciona correctamente.
 Envía una pull request con una descripción detallada de tus cambios.
+
+- Tips que añadir:
+> Se puede agregar la clase para hashear la contraseña.
+> Agregar más tablas en la DB para almacenar el chat.
+> Tirá más tips aquí...
+
 ¡Gracias por tu interés en este proyecto!
