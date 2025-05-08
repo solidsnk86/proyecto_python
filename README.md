@@ -106,6 +106,6 @@ Envía una pull request con una descripción detallada de tus cambios.
 > **NOTE!** Tips para añadir 
 >- Se puede agregar la clase para hashear la contraseña.
 >- Agregar más tablas en la DB para almacenar el chat.
->- Tirá más tips aquí...
+>- [Tira más tips acá...](https://github.com/solidsnk86/proyecto_python/issues/new)
 
 ¡Gracias por tu interés en este proyecto!
