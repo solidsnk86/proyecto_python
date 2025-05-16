@@ -3,6 +3,7 @@ import uuid
 from dsn import DSN
 from colorama import Fore, Style
 import getpass
+from styles.StylesFormat import Styles
 
 conn = psycopg2.connect(**DSN)
 
@@ -13,8 +14,8 @@ class Model:
             with conn:
                 with conn.cursor() as cursor:
                     query = "INSERT INTO public.user (id, username, password) VALUES (%s, %s, %s)"
-                    username = input("\nIngrese nombre de usuario:")
-                    password = getpass.getpass("Ingrese la contraseña: ")
+                    username = Styles.username_input()
+                    password = Styles.password_input()
                     random_id = uuid.uuid4()
                     converted_values = (
                         str(random_id),
@@ -23,7 +24,7 @@ class Model:
                     )
 
                     cursor.execute(query, converted_values)
-                    print(f"{Fore.CYAN}{cursor.rowcount} Registro insertado: {username}{Style.RESET_ALL}")
+                    Styles.user_login(username)
         except psycopg2.Error as e:
             print(f"Acá algo huele mal...💩: {e}")
 

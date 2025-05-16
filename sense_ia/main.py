@@ -7,7 +7,7 @@ option = 0
 while option != 5:
     try:
         Styles.menu_principal()
-        option = int(input("\nIngrese una opción: "))
+        option = Styles.option()
         if option == 1:
             Model.create_user()
         elif option == 2:
